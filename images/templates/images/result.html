@@ -1,0 +1,9 @@
+<h1>{{ image.image_name }}</h1>
+
+<ul>
+{% for comment in image.comment_set.all %}
+    <li>{{ comment.comment_text }} -- {{ comment.votes }} vote{{ comment.votes|pluralize }}</li>
+{% endfor %}
+</ul>
+
+<a href="{% url 'images:detail' image.id %}">Vote again?</a>
